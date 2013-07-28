@@ -9,11 +9,7 @@ Two possible ways will be implemented:
 1. Documents (2 objects) - Document has_many Versions, each document has a latest version, current version marked by 'current' attribute
 2. Blog (1 object) - Post, there is one most recent blog post, sorted by blog_date
 
-It would be easy to extend this using any base.
-
-Additional Information can be found here:
-
-- [Aaron Swartz - A Programmable Web, Ch. 2 Building for Users: Designing URLs](http://www.morganclaypool.com/doi/abs/10.2200/S00481ED1V01Y201302WBE005)
+Additional Information can be found here: [Aaron Swartz - A Programmable Web, Ch. 2 Building for Users: Designing URLs](http://www.morganclaypool.com/doi/abs/10.2200/S00481ED1V01Y201302WBE005)
 
 
 Rake Routes
