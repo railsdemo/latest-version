@@ -19,7 +19,7 @@ Additional Information can be found here:
 Rake Routes
 
 ```
-root GET    /                                              pages#home
+                root GET    /                                              pages#home
                blogs GET    /blogs(.:format)                               blogs#index
                      POST   /blogs(.:format)                               blogs#create
             new_blog GET    /blogs/new(.:format)                           blogs#new
