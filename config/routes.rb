@@ -1,6 +1,10 @@
 LatestVersion::Application.routes.draw do
   
+  root to: "pages#home"
+
+  
   resources :blogs
+  get '/blog' => 'blogs#current', as: 'current_blog'
 
   shallow do
     resources :documents do
@@ -8,6 +12,5 @@ LatestVersion::Application.routes.draw do
     end
   end
 
-  root to: "pages#home"
   
 end
