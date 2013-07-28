@@ -1,10 +1,11 @@
 class VersionsController < ApplicationController
   before_action :set_version, only: [:show, :edit, :update, :destroy]
+  before_filter :load_document, only: [:index, :create, :new]
 
   # GET /versions
   # GET /versions.json
   def index
-    @versions = Version.all
+    @versions = @document.versions
   end
 
   # GET /versions/1
@@ -14,7 +15,7 @@ class VersionsController < ApplicationController
 
   # GET /versions/new
   def new
-    @version = Version.new
+    @version = @document.versions.new
   end
 
   # GET /versions/1/edit
@@ -24,7 +25,7 @@ class VersionsController < ApplicationController
   # POST /versions
   # POST /versions.json
   def create
-    @version = Version.new(version_params)
+    @version = @document.versions.new(version_params)
 
     respond_to do |format|
       if @version.save
@@ -69,6 +70,10 @@ class VersionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def version_params
-      params.require(:version).permit(:content, :version_date, :current)
+      params.require(:version).permit(:content, :version_date, :current, :document_id)
     end
+
+    def load_document
+      @document = Document.find_by_id(params[:document_id])
+  end
 end

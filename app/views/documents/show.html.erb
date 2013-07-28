@@ -7,3 +7,14 @@
 
 <%= link_to 'Edit', edit_document_path(@document) %> |
 <%= link_to 'Back', documents_path %>
+
+
+<h1> Current Version </h1>
+
+<% if @document.current_version %>
+	<%= render file: '/versions/show' %>
+<% else %>
+	No current version
+<% end %>
+
+<%= render file: '/versions/index' %>
