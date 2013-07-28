@@ -2,8 +2,10 @@ LatestVersion::Application.routes.draw do
   
   resources :blogs
 
-  resources :documents do
-    resources :versions
+  shallow do
+    resources :documents do
+      resources :versions
+    end
   end
 
   root to: "pages#home"
